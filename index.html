@@ -409,7 +409,7 @@
         }
         
         /* Certificates Section */
-        #certificates {
+        /* #certificates {
             padding: 8rem 10%;
             background: rgba(5, 5, 16, 0.6);
             position: relative;
@@ -479,8 +479,124 @@
         
         .certificate-link:hover {
             text-decoration: underline;
+        } */
+
+         #certificates {
+            padding: 8rem 10%;
+            background:rgba(5, 5, 16, 0.6);
+            /* background: rgba(10, 10, 10, 0.6); */
+            position: relative;
+            overflow: hidden;
         }
         
+        .certificates-container {
+            margin-top: 3rem;
+            position: relative;
+        }
+        
+        .certificates-slider {
+            display: flex;
+            overflow-x: auto;
+            gap: 2rem;
+            padding: 2rem 0;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            cursor: grab;
+        }
+        
+        .certificates-slider:active {
+            cursor: grabbing;
+        }
+        
+        .certificates-slider::-webkit-scrollbar {
+            height: 8px;
+        }
+        
+        .certificates-slider::-webkit-scrollbar-track {
+            background: rgba(0, 230, 118, 0.1);
+            border-radius: 10px;
+        }
+        
+        .certificates-slider::-webkit-scrollbar-thumb {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border-radius: 10px;
+        }
+        
+        .certificate-card {
+            min-width: 300px;
+            max-width: 400px;
+            /* background: rgba(30, 30, 30, 0.8); */
+            background: rgba(20, 20, 40, 0.6);
+            border-radius: 15px;
+            overflow: hidden;
+            scroll-snap-align: start;
+            transition: all 0.3s ease;
+            /* border: 1px solid rgba(0, 230, 118, 0.1); */
+            border: 1px solid rgba(0, 247, 255, 0.1);
+
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            flex-shrink: 0;
+        }
+        
+        .certificate-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 247, 255, 0.1);
+            border-color:  rgba(0, 247, 255, 0.3);
+        }
+        
+        .certificate-img {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .certificate-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .certificate-card:hover .certificate-img img {
+            transform: scale(1.1);
+        }
+        
+        .certificate-content {
+            padding: 1.5rem;
+        }
+        
+        .certificate-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .certificate-content p {
+            opacity: 0.8;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+        
+        .certificate-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            background: rgba(0, 230, 118, 0.1);
+            border: 1px solid rgba(0, 230, 118, 0.1);
+            width: fit-content;
+        }
+        
+        .certificate-link:hover {
+            background: rgba(0, 230, 118, 0.2);
+            transform: translateY(-2px);
+        }
         /* Badges Section */
         #badges {
             padding: 8rem 10%;
@@ -828,7 +944,7 @@
     </section>
     
     <!-- Certificates Section -->
-    <section id="certificates">
+    <!-- <section id="certificates">
         <h2 class="section-title">Certifications</h2>
         <div class="certificates-container">
             <div class="certificate-card">
@@ -859,6 +975,64 @@
                     <h3>Deep Learning Specialization</h3>
                     <p>Advanced neural networks and deep learning architectures certification</p>
                     <a href="#" class="certificate-link">View Certificate <i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+        </div>
+    </section> -->
+     <!-- Certificates Section - Now a slider -->
+    <section id="certificates">
+        <h2 class="section-title">Certifications</h2>
+        <div class="certificates-container">
+            <div class="certificates-slider">
+                <div class="certificate-card">
+                    <div class="certificate-img">
+                        <img src="https://via.placeholder.com/400x200" alt="Certificate Image">
+                    </div>
+                    <div class="certificate-content">
+                        <h3>NVIDIA Jetson AI Specialist</h3>
+                        <p>Certified in developing and deploying AI solutions on NVIDIA Jetson platforms</p>
+                        <a href="#" class="certificate-link">View Certificate <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+                <div class="certificate-card">
+                    <div class="certificate-img">
+                        <img src="https://via.placeholder.com/400x200" alt="Certificate Image">
+                    </div>
+                    <div class="certificate-content">
+                        <h3>ROS2 Professional Certification</h3>
+                        <p>Expertise in Robot Operating System 2 for industrial applications</p>
+                        <a href="#" class="certificate-link">View Certificate <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+                <div class="certificate-card">
+                    <div class="certificate-img">
+                        <img src="https://via.placeholder.com/400x200" alt="Certificate Image">
+                    </div>
+                    <div class="certificate-content">
+                        <h3>Deep Learning Specialization</h3>
+                        <p>Advanced neural networks and deep learning architectures certification</p>
+                        <a href="#" class="certificate-link">View Certificate <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+                <div class="certificate-card">
+                    <div class="certificate-img">
+                        <img src="https://via.placeholder.com/400x200" alt="Certificate Image">
+                    </div>
+                    <div class="certificate-content">
+                        <h3>Computer Vision Expert</h3>
+                        <p>Specialized in implementing computer vision algorithms for robotics</p>
+                        <a href="#" class="certificate-link">View Certificate <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+                <div class="certificate-card">
+                    <div class="certificate-img">
+                        <img src="https://via.placeholder.com/400x200" alt="Certificate Image">
+                    </div>
+                    <div class="certificate-content">
+                        <h3>Embedded AI Certification</h3>
+                        <p>Deploying machine learning models on edge devices</p>
+                        <a href="#" class="certificate-link">View Certificate <i class="fas fa-external-link-alt"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
