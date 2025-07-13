@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robotics Engineer | AI/ML Specialist | ROS2 & Jetson Expert</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #00f7ff;
+            --secondary: #0066ff;
+            --dark: #0a0a14;
+            --darker: #050510;
+            --light: #e0e0ff;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, var(--darker), var(--dark));
+            color: var(--light);
+            overflow-x: hidden;
+        }
+        
+        /* Navigation */
+        .nav-container {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(10, 10, 20, 0.8);
+            backdrop-filter: blur(10px);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            padding: 1.5rem 5%;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        #home {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 10%;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            z-index: 2;
+            max-width: 600px;
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .hero-btns {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: var(--darker);
+            border: none;
+        }
+        
+        .btn-outline {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            background: transparent;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 247, 255, 0.2);
+        }
+        
+        /* About Section */
+        #about {
+            padding: 8rem 10%;
+            background: rgba(5, 5, 16, 0.6);
+            position: relative;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 4px;
+            bottom: -10px;
+            left: 0;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+        
+        .about-content {
+            display: flex;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-img {
+            flex: 1;
+            position: relative;
+        }
+        
+        .about-img::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 3px solid var(--primary);
+            top: 20px;
+            left: 20px;
+            z-index: -1;
+            border-radius: 10px;
+        }
+        
+        .about-img img {
+            width: 100%;
+            border-radius: 10px;
+            filter: grayscale(20%) contrast(110%);
+            transition: all 0.5s ease;
+        }
+        
+        .about-img:hover img {
+            filter: grayscale(0%) contrast(100%);
+        }
+        
+        /* Skills Section */
+        #skills {
+            padding: 8rem 10%;
+            position: relative;
+        }
+        
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .skill-category {
+            background: rgba(20, 20, 40, 0.6);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 247, 255, 0.1);
+        }
+        
+        .skill-category:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 247, 255, 0.1);
+            border-color: rgba(0, 247, 255, 0.3);
+        }
+        
+        .skill-category h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .skill-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .skill-item {
+            background: rgba(0, 247, 255, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .skill-item:hover {
+            background: rgba(0, 247, 255, 0.2);
+            transform: scale(1.05);
+        }
+        
+        .skill-item i {
+            color: var(--primary);
+        }
+        
+        /* Projects Section */
+        #projects {
+            padding: 8rem 10%;
+            background: rgba(5, 5, 16, 0.6);
+            position: relative;
+        }
+        
+        .projects-container {
+            margin-top: 3rem;
+            position: relative;
+        }
+        
+        .projects-slider {
+            display: flex;
+            overflow-x: auto;
+            gap: 2rem;
+            padding: 2rem 0;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .projects-slider::-webkit-scrollbar {
+            height: 8px;
+        }
+        
+        .projects-slider::-webkit-scrollbar-track {
+            background: rgba(0, 247, 255, 0.1);
+            border-radius: 10px;
+        }
+        
+        .projects-slider::-webkit-scrollbar-thumb {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border-radius: 10px;
+        }
+        
+        .project-card {
+            min-width: 300px;
+            max-width: 400px;
+            background: rgba(20, 20, 40, 0.6);
+            border-radius: 15px;
+            overflow: hidden;
+            scroll-snap-align: start;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 247, 255, 0.1);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 247, 255, 0.1);
+            border-color: rgba(0, 247, 255, 0.3);
+        }
+        
+        .project-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .project-card:hover .project-img img {
+            transform: scale(1.1);
+        }
+        
+        .project-content {
+            padding: 1.5rem;
+        }
+        
+        .project-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .project-content p {
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .project-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .project-links a:hover {
+            color: var(--primary);
+        }
+        
+        /* Highlights Section */
+        #highlights {
+            padding: 8rem 10%;
+            position: relative;
+        }
+        
+        .highlights-container {
+            margin-top: 3rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .highlight-card {
+            background: rgba(20, 20, 40, 0.6);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 247, 255, 0.1);
+        }
+        
+        .highlight-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 247, 255, 0.1);
+            border-color: rgba(0, 247, 255, 0.3);
+        }
+        
+        .highlight-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .highlight-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .highlight-card p {
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+        
+        /* Certificates Section */
+        /* #certificates {
+            padding: 8rem 10%;
+            background: rgba(5, 5, 16, 0.6);
+            position: relative;
+        }
+        
+        .certificates-container {
+            margin-top: 3rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .certificate-card {
+            background: rgba(20, 20, 40, 0.6);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 247, 255, 0.1);
+        }
+        
+        .certificate-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 247, 255, 0.1);
+            border-color: rgba(0, 247, 255, 0.3);
+        }
+        
+        .certificate-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .certificate-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .certificate-card:hover .certificate-img img {
+            transform: scale(1.1);
+        }
+        
+        .certificate-content {
+            padding: 1.5rem;
+        }
+        
+        .certificate-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .certificate-content p {
+            opacity: 0.8;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .certificate-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .certificate-link:hover {
+            text-decoration: underline;
+        } */
+
+         #certificates {
+            padding: 8rem 10%;
+            background:rgba(5, 5, 16, 0.6);
+            /* background: rgba(10, 10, 10, 0.6); */
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .certificates-container {
+            margin-top: 3rem;
+            position: relative;
+        }
+        
+        .certificates-slider {
+            display: flex;
+            overflow-x: auto;
+            gap: 2rem;
+            padding: 2rem 0;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            cursor: grab;
+        }
+        
+        .certificates-slider:active {
+            cursor: grabbing;
+        }
+        
+        .certificates-slider::-webkit-scrollbar {
+            height: 8px;
+        }
+        
+        .certificates-slider::-webkit-scrollbar-track {
+            background: rgba(0, 230, 118, 0.1);
+            border-radius: 10px;
+        }
+        
+        .certificates-slider::-webkit-scrollbar-thumb {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border-radius: 10px;
+        }
+        
+        .certificate-card {
+            min-width: 300px;
+            max-width: 400px;
+            /* background: rgba(30, 30, 30, 0.8); */
+            background: rgba(20, 20, 40, 0.6);
+            border-radius: 15px;
+            overflow: hidden;
+            scroll-snap-align: start;
+            transition: all 0.3s ease;
+            /* border: 1px solid rgba(0, 230, 118, 0.1); */
+            border: 1px solid rgba(0, 247, 255, 0.1);
+
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            flex-shrink: 0;
+        }
+        
+        .certificate-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 247, 255, 0.1);
+            border-color:  rgba(0, 247, 255, 0.3);
+        }
+        
+        .certificate-img {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .certificate-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .certificate-card:hover .certificate-img img {
+            transform: scale(1.1);
+        }
+        
+        .certificate-content {
+            padding: 1.5rem;
+        }
+        
+        .certificate-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .certificate-content p {
+            opacity: 0.8;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+        
+        .certificate-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            background: rgba(0, 230, 118, 0.1);
+            border: 1px solid rgba(0, 230, 118, 0.1);
+            width: fit-content;
+        }
+        
+        .certificate-link:hover {
+            background: rgba(0, 230, 118, 0.2);
+            transform: translateY(-2px);
+        }
+        /* Badges Section
+        #badges {
+            padding: 8rem 10%;
+            position: relative;
+        }
+        
+        .badges-container {
+            margin-top: 3rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+        
+        .badge-item {
+            width: 120px;
+            height: 120px;
+            background: rgba(20, 20, 40, 0.6);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(0, 247, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .badge-item::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 2px solid var(--primary);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .badge-item:hover {
+            transform: translateY(-10px) scale(1.1);
+            box-shadow: 0 10px 20px rgba(0, 247, 255, 0.2);
+            border-color: rgba(0, 247, 255, 0.3);
+        }
+        
+        .badge-item:hover::before {
+            opacity: 0.3;
+            animation: rotate 3s linear infinite;
+        }
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .badge-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .badge-item p {
+            font-size: 0.8rem;
+            text-align: center;
+        }*/
+        /* Badges Section */
+        #badges {
+            padding: 8rem 10%;
+            position: relative;
+        }
+                /* Badge Item with Link */
+        .badge-item {
+            width: 120px;
+            height: 120px;
+            background: rgba(20, 20, 40, 0.6);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(0, 247, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .badge-link {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            z-index: 1; /* Ensures link is above other elements */
+        }
+
+        .badge-icon {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+             pointer-events: none; 
+        }
+
+
+        .badge-icon img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+             pointer-events: none; 
+        }
+
+/* Rest of your existing badge styles (hover effects, etc.) */
+
+        .badges-container {
+            margin-top: 3rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .badge-item {
+            width: 120px;
+            height: 120px;
+            background: rgba(20, 20, 40, 0.6);
+            border-radius: 20%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(0, 247, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .badge-item a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .badge-item::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 30%;
+            border: 2px solid var(--primary);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .badge-item:hover {
+            transform: translateY(-10px) scale(1.1);
+            box-shadow: 0 10px 20px rgba(0, 247, 255, 0.2);
+            border-color: rgba(0, 247, 255, 0.3);
+        }
+
+        .badge-item:hover::before {
+            opacity: 0.3;
+            animation: rotate 3s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .badge-icon {
+            width: 110px;
+            height: 110px;
+            margin-bottom: 0rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .badge-icon img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .badge-item p {
+            font-size: 0.8rem;
+            text-align: center;
+            margin: 0;
+            color: white;
+        }
+        /* Footer */
+        footer {
+            padding: 5rem 10% 3rem;
+            background: rgba(5, 5, 16, 0.8);
+            text-align: center;
+        }
+        
+        .footer-title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .footer-subtitle {
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            opacity: 0.9;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .social-link {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(20, 20, 40, 0.6);
+            color: var(--light);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 247, 255, 0.1);
+        }
+        
+        .social-link:hover {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: var(--darker);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 247, 255, 0.2);
+        }
+        
+        .copyright {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+        
+        /* Background Elements */
+        .bg-element {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.15;
+            z-index: -1;
+        }
+        
+        .bg-1 {
+            width: 300px;
+            height: 300px;
+            background: var(--primary);
+            top: 10%;
+            left: 5%;
+            animation: float 8s ease-in-out infinite;
+        }
+        
+        .bg-2 {
+            width: 400px;
+            height: 400px;
+            background: var(--secondary);
+            bottom: 10%;
+            right: 5%;
+            animation: float 10s ease-in-out infinite 2s;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+            100% { transform: translateY(0) rotate(0deg); }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-img {
+                margin-top: 3rem;
+            }
+            
+            .skills-container, .highlights-container, .certificates-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .project-card {
+                min-width: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <div class="nav-container">
+        <nav>
+            <div class="logo">Portfolio</div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#highlights">Highlights</a>
+                <a href="#certificates">Certificates</a>
+                <a href="#badges">Badges</a>
+            </div>
+        </nav>
+    </div>
+    
+    <!-- Home Section -->
+    <section id="home">
+        <div class="hero-content">
+            <h1 class="hero-title">Hi, I'm Usman Noor</h1>
+            <p class="hero-subtitle">Robotics Engineer | Machine Learning Specialist | ROS2 & NVIDIA Jetson Expert</p>
+            <div class="hero-btns">
+                <a href="#projects" class="btn btn-primary">View My Work</a>
+                <a href="#contact" class="btn btn-outline">Contact Me</a>
+            </div>
+        </div>
+        <div class="bg-element bg-1"></div>
+        <div class="bg-element bg-2"></div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>I'm a passionate Robotics Engineer with expertise in Machine Learning, Deep Learning, and ROS2 development. With extensive experience working with NVIDIA Jetson platforms, I bridge the gap between AI algorithms and real-world robotic applications.</p>
+                <p>My work focuses on creating intelligent systems that perceive, learn, and adapt to their environments. I've successfully delivered numerous projects on Upwork, helping clients implement cutting-edge robotics solutions.</p>
+                <p>When I'm not coding, you can find me tinkering with hardware, reading research papers, or contributing to open-source robotics projects.</p>
+            </div>
+            <div class="about-img">
+                <img src="/images/about/images.png" alt="Profile Image">
+            </div>
+        </div>
+    </section>
+    
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2 class="section-title">My Skills</h2>
+        <div class="skills-container">
+            <div class="skill-category">
+                <h3>Robotics</h3>
+                <div class="skill-items">
+                    <div class="skill-item"><i class="fas fa-robot"></i> ROS/ROS2</div>
+                    <div class="skill-item"><i class="fas fa-microchip"></i> NVIDIA Jetson</div>
+                    <div class="skill-item"><i class="fas fa-cogs"></i> Robot Kinematics</div>
+                    <div class="skill-item"><i class="fas fa-project-diagram"></i> SLAM</div>
+                    <div class="skill-item"><i class="fas fa-eye"></i> Computer Vision</div>
+                    <div class="skill-item"><i class="fas fa-brain"></i> Sensor Fusion</div>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>AI/ML</h3>
+                <div class="skill-items">
+                    <div class="skill-item"><i class="fas fa-network-wired"></i> Deep Learning</div>
+                    <div class="skill-item"><i class="fas fa-chart-line"></i> Machine Learning</div>
+                    <div class="skill-item"><i class="fab fa-python"></i> TensorFlow/PyTorch</div>
+                    <div class="skill-item"><i class="fas fa-image"></i> CNN Architectures</div>
+                    <div class="skill-item"><i class="fas fa-memory"></i> Neural Networks</div>
+                    <div class="skill-item"><i class="fas fa-object-group"></i> Object Detection</div>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Development</h3>
+                <div class="skill-items">
+                    <div class="skill-item"><i class="fab fa-python"></i> Python</div>
+                    <div class="skill-item"><i class="fas fa-code"></i> C++</div>
+                    <div class="skill-item"><i class="fab fa-linux"></i> Embedded Linux</div>
+                    <div class="skill-item"><i class="fas fa-code-branch"></i> Git</div>
+                    <div class="skill-item"><i class="fas fa-server"></i> Docker</div>
+                    <div class="skill-item"><i class="fas fa-cloud"></i> Cloud Deployment</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2 class="section-title">My Projects</h2>
+        <div class="projects-container">
+            <div class="projects-slider">
+                <!-- Project cards will be dynamically loaded from GitHub API -->
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://via.placeholder.com/400x200" alt="Project Image">
+                    </div>
+                    <div class="project-content">
+                        <h3>Autonomous Drone Navigation</h3>
+                        <p>ROS2-based autonomous drone using NVIDIA Jetson for real-time object detection and path planning in dynamic environments.</p>
+                        <div class="project-links">
+                            <a href="#"><i class="fab fa-github"></i> View Code</a>
+                            <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://via.placeholder.com/400x200" alt="Project Image">
+                    </div>
+                    <div class="project-content">
+                        <h3>Industrial Robot Arm ML Control</h3>
+                        <p>Machine learning model trained to control a 6-DOF robotic arm for precise manufacturing tasks using reinforcement learning.</p>
+                        <div class="project-links">
+                            <a href="#"><i class="fab fa-github"></i> View Code</a>
+                            <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://via.placeholder.com/400x200" alt="Project Image">
+                    </div>
+                    <div class="project-content">
+                        <h3>Jetson-Powered Smart Surveillance</h3>
+                        <p>Real-time multi-object tracking system with facial recognition running on NVIDIA Jetson Xavier NX.</p>
+                        <div class="project-links">
+                            <a href="#"><i class="fab fa-github"></i> View Code</a>
+                            <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- More projects will be added dynamically -->
+            </div>
+        </div>
+    </section>
+    
+    <!-- Highlights Section -->
+    <!-- <section id="highlights">
+        <h2 class="section-title">Career Highlights</h2>
+        <div class="highlights-container">
+            <div class="highlight-card">
+                <div class="highlight-icon"><i class="fas fa-medal"></i></div>
+                <h3>Top Rated</h3>
+                <p>Consistently ranked among top Robotics engineers on Upwork with 100% job success rate</p>
+            </div>
+            <div class="highlight-card">
+                <div class="highlight-icon"><i class="fas fa-project-diagram"></i></div>
+                <h3>50+ Projects</h3>
+                <p>Delivered complex robotics and AI solutions for clients worldwide</p>
+            </div>
+            <div class="highlight-card">
+                <div class="highlight-icon"><i class="fas fa-code-branch"></i></div>
+                <h3>Open Source</h3>
+                <p>Active contributor to ROS2 and robotics open-source communities</p>
+            </div>
+            <div class="highlight-card">
+                <div class="highlight-icon"><i class="fas fa-graduation-cap"></i></div>
+                <h3>Research</h3>
+                <p>Published papers on machine learning applications in robotics</p>
+            </div>
+        </div>
+    </section> -->
+    
+    <!-- Certificates Section -->
+    <!-- <section id="certificates">
+        <h2 class="section-title">Certifications</h2>
+        <div class="certificates-container">
+            <div class="certificate-card">
+                <div class="certificate-img">
+                    <img src="https://via.placeholder.com/400x200" alt="Certificate Image">
+                </div>
+                <div class="certificate-content">
+                    <h3>NVIDIA Jetson AI Specialist</h3>
+                    <p>Certified in developing and deploying AI solutions on NVIDIA Jetson platforms</p>
+                    <a href="#" class="certificate-link">View Certificate <i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+            <div class="certificate-card">
+                <div class="certificate-img">
+                    <img src="https://via.placeholder.com/400x200" alt="Certificate Image">
+                </div>
+                <div class="certificate-content">
+                    <h3>ROS2 Professional Certification</h3>
+                    <p>Expertise in Robot Operating System 2 for industrial applications</p>
+                    <a href="#" class="certificate-link">View Certificate <i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+            <div class="certificate-card">
+                <div class="certificate-img">
+                    <img src="https://via.placeholder.com/400x200" alt="Certificate Image">
+                </div>
+                <div class="certificate-content">
+                    <h3>Deep Learning Specialization</h3>
+                    <p>Advanced neural networks and deep learning architectures certification</p>
+                    <a href="#" class="certificate-link">View Certificate <i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+        </div>
+    </section> -->
+     <!-- Certificates Section - Now a slider -->
+    <section id="certificates">
+        <h2 class="section-title">Certifications</h2>
+        <div class="certificates-container">
+            <div class="certificates-slider">
+                <div class="certificate-card">
+                    <div class="certificate-img">
+                        <img src="images/certificates/Data_Analysis_Python-1.png" alt="Certificate Image">
+                    </div>
+                    <div class="certificate-content">
+                        <h3>Data Analysis with Python</h3>
+                        <p>Skilled in data wrangling, visualization, regression models, and model evaluation using pandas & Scikit-learn (IBM)</p>
+                        <a href="https://courses.cognitiveclass.ai/certificates/18721004a1c24f519306b08fe0a88985" class="certificate-link" target="_blank">View Certificate <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+                <div class="certificate-card">
+                    <div class="certificate-img">
+                        <img src="images/certificates/Coursera YO4NPHAYUW5U-1.png" alt="Certificate Image">
+                    </div>
+                    <div class="certificate-content">
+                        <h3>Supervised Machine Learning: Regression and Classification</h3>
+                        <p>Advanced Linear & Logistic Regression, Loss functions & Gradient Descent, Model Evaluation, Practical ML workflows</p>
+                        <a href="https://www.coursera.org/account/accomplishments/verify/YO4NPHAYUW5U" class="certificate-link" target="_blank">View Certificate <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+
+                <div class="certificate-card">
+                    <div class="certificate-img">
+                        <img src="images/certificates/Introduction to Generative AI - Art of the Possible-1.png" alt="Certificate Image">
+                    </div>
+                    <div class="certificate-content">
+                        <h3>Introduction to Generative AI - Art of the Possible</h3>
+                        <p>AWS certified, Understanding core concepts, use cases, AWS cloud, and capabilities of generative AI in real-world applications (Art of the Possible, by IBM)</p>
+                        <a href="https://skillbuilder.aws/learn/ZEVZZ1D4AS/introduction-to-generative-ai--art-of-the-possible/Y7MTGJCW1U" class="certificate-link" target="_blank">View Certificate <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+                
+                <div class="certificate-card">
+                    <div class="certificate-img">
+                        <img src="images/certificates/Self Driving and ROS 2-1.png" alt="Certificate Image">
+                    </div>
+                    <div class="certificate-content">
+                        <h3>Self-Driving & ROS2 (Map and Localization)</h3>
+                        <p>Hands-on experience in real world mapping, localization, and autonomous navigation</p>
+                        <a href="https://www.udemy.com/certificate/UC-bd2399eb-07e2-46cc-b788-e6f461d58bcb/?utm_campaign=email&utm_medium=email&utm_source=sendgrid.com" class="certificate-link" target="_blank">View Certificate  <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+                <div class="certificate-card">
+                    <div class="certificate-img">
+                        <img src="images/certificates/ROS2_for_Beginners_Level_2-1.png" alt="Certificate Image">
+                    </div>
+                    <div class="certificate-content">
+                        <h3> ROS2 Level 2 Certified</h3>
+                        <p> Mastered TF, URDF modeling, RViz visualization, and Gazebo simulations for robotics</p>
+                        <a href="https://www.udemy.com/certificate/UC-314871e5-a6dc-401c-b377-c0eadf1ad417/?utm_campaign=email&utm_medium=email&utm_source=sendgrid.com" class="certificate-link">View Certificate <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+                <div class="certificate-card">
+                    <div class="certificate-img">
+                        <img src="images/certificates/STEM_Certificate-min.png" alt="Certificate Image">
+                    </div>
+                    <div class="certificate-content">
+                        <h3> 🏆 National STEM Champion</h3>
+                        <p>All Pakistan STEM Project Competition 2025 | National-level recognition for innovative project in Autonomous Guided Vehicle(AGV)</p>
+                        <a href="#" class="certificate-link">View Certificate <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+                 <div class="certificate-card">
+                    <div class="certificate-img">
+                        <img src="images/certificates/Vantilator_Certificate-min.png" alt="Certificate Image">
+                    </div>
+                    <div class="certificate-content">
+                        <h3> 🏆 Best Project Award</h3>
+                        <p>1st Position at UET Lahore for "Control of an AMBulator" (Spring 2023) | Recognized for excellence in embedded systems, control system, and mechanical design.</p>
+                        <a href="#" class="certificate-link">View Certificate <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Badges Section -->
+    <!-- <section id="badges">
+        <h2 class="section-title">Achievement Badges</h2>
+        <div class="badges-container">
+            <div class="badge-item">
+                <div class="badge-icon"><i class="fab fa-nvidia"></i></div>
+                <p>Jetson Expert</p>
+            </div>
+            <div class="badge-item">
+                <div class="badge-icon"><i class="fas fa-robot"></i></div>
+                <p>ROS2 Master</p>
+            </div>
+            <div class="badge-item">
+                <div class="badge-icon"><i class="fas fa-brain"></i></div>
+                <p>ML Specialist</p>
+            </div>
+            <div class="badge-item">
+                <div class="badge-icon"><i class="fab fa-python"></i></div>
+                <p>Python Pro</p>
+            </div>
+            <div class="badge-item">
+                <div class="badge-icon"><i class="fas fa-rocket"></i></div>
+                <p>Upwork Top Rated</p>
+            </div>
+            <div class="badge-item">
+                <div class="badge-icon"><i class="fas fa-code"></i></div>
+                <p>Open Source</p>
+            </div>
+        </div>
+    </section> -->
+
+    <section id="badges">
+    <h2 class="section-title">Achievement Badges</h2>
+    <div class="badges-container">
+        <!-- <div class="badge-item">
+            <a href="https://www.credly.com/badges/88aeebf3-c503-4cad-a452-eba331cd7263/public_url" target="_blank">
+                <div class="badge-icon"><img src="images/badges/data-analysis-using-python.png"></div>
+              
+            </a>
+        </div> -->
+        <div class="badge-item">
+            <a href="https://www.credly.com/badges/88aeebf3-c503-4cad-a452-eba331cd7263/public_url" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="badge-link">
+                    <div class="badge-icon">
+                        <img src="images/badges/data-analysis-using-python.png" alt="Data Analysis Using Python">
+                    </div>
+            </a>
+        </div>
+        <!-- <div class="badge-item">
+            <a href="https://example.com/ros2-master" target="_blank">
+                <div class="badge-icon"><img src="ros2-master.png" alt="ROS2 Master"></div>
+                <p>ROS2 Master</p>
+            </a>
+        </div>
+        <div class="badge-item">
+            <a href="https://example.com/ml-specialist" target="_blank">
+                <div class="badge-icon"><img src="ml-specialist.png" alt="ML Specialist"></div>
+                <p>ML Specialist</p>
+            </a>
+        </div>
+        <div class="badge-item">
+            <a href="https://example.com/python-pro" target="_blank">
+                <div class="badge-icon"><img src="python-pro.png" alt="Python Pro"></div>
+                <p>Python Pro</p>
+            </a>
+        </div>
+        <div class="badge-item">
+            <a href="https://example.com/upwork-top-rated" target="_blank">
+                <div class="badge-icon"><img src="upwork-top-rated.png" alt="Upwork Top Rated"></div>
+                <p>Upwork Top Rated</p>
+            </a>
+        </div>
+        <div class="badge-item">
+            <a href="https://example.com/open-source" target="_blank">
+                <div class="badge-icon"><img src="open-source.png" alt="Open Source"></div>
+                <p>Open Source</p>
+            </a>
+        </div> -->
+    </div>
+</section>
+    
+    <!-- Footer -->
+    <footer id="contact">
+        <h2 class="footer-title">Let's Work Together</h2>
+        <p class="footer-subtitle">Have a robotics or AI machine learning project in mind? I'd love to hear about it and explore how we can bring your ideas to life.</p>
+        <div class="social-links">
+            <a href="mailto:musmannoor2004@gmail.com" target="_blank" class="social-link"><i class="fas fa-envelope"></i></a>
+            <a href="https://github.com/usmanNoor5" target="_blank" class="social-link"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/muhammad-usman-noor-b2a497236?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+            <!-- <a href="https://www.upwork.com/freelancers/~01866e6f65dacb253b?mp_source=share" target="_blank" class="social-link"><i class="fa-brands fa-square-upwork"></i></a> -->
+            <a href="https://www.upwork.com/freelancers/~01866e6f65dacb253b?mp_source=share" class="social-link" target="_blank">
+    <svg viewBox="0 0 24 24" width="24" height="24" style="fill: currentColor; vertical-align: middle;">
+        <path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112c-.002 1.406-1.141 2.546-2.547 2.548-1.406-.002-2.543-1.143-2.545-2.548V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.686 1.109 3 0 5.439-2.452 5.439-5.45 0-3-2.439-5.439-5.439-5.439z"/>
+    </svg>
+    
+</a>
+            <!-- <i class="fa-brands fa-square-upwork"></i> -->
+            <a href="#" class="social-link"><i class="fas fa-file-pdf"></i></a>
+        </div>
+        <p class="copyright">© 2022 Muhammad Usman Noor. All rights reserved.</p>
+    </footer>
+    
+    <script>
+        // JavaScript for animations and GitHub integration would go here
+        // This would include:
+        // 1. Smooth scrolling for navigation
+        // 2. GSAP animations for section entrances
+        // 3. GitHub API integration to load projects dynamically
+        // 4. Interactive skill animations
+        // 5. Project slider functionality
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            // Simple smooth scrolling for demo purposes
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+            
+            // In a real implementation, you would add:
+            // - Intersection Observer for scroll animations
+            // - GitHub API fetch to populate projects
+            // - More sophisticated animations
+        });
+    </script>
+</body>
+</html>

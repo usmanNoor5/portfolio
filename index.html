@@ -35,18 +35,9 @@
         
         nav {
             display: flex;
-            justify-content: space-between;
-            padding: 1.5rem 5%;
+            justify-content: center;
+            padding: 1rem 5%;
             align-items: center;
-        }
-        
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
         }
         
         .nav-links {
@@ -60,6 +51,7 @@
             font-weight: 500;
             position: relative;
             transition: all 0.3s ease;
+            font-size: 1.1rem;
         }
         
         .nav-links a::after {
@@ -79,7 +71,7 @@
         
         /* Hero Section */
         #home {
-            height: 100vh;
+            height: 90vh;
             display: flex;
             align-items: center;
             padding: 0 10%;
@@ -90,20 +82,22 @@
         .hero-content {
             z-index: 2;
             max-width: 600px;
+            margin-top: -50px;
         }
         
         .hero-title {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
             background: linear-gradient(to right, var(--primary), var(--secondary));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
+            line-height: 1.2;
         }
         
         .hero-subtitle {
             font-size: 1.2rem;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             opacity: 0.9;
         }
         
@@ -138,16 +132,48 @@
             box-shadow: 0 10px 20px rgba(0, 247, 255, 0.2);
         }
         
+        .hero-img {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        
+        .hero-img::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 3px solid var(--primary);
+            top: 20px;
+            left: 20px;
+            z-index: -1;
+            border-radius: 10px;
+        }
+        
+        .hero-img img {
+            width: 80%;
+            border-radius: 10px;
+            filter: grayscale(20%) contrast(110%);
+            transition: all 0.5s ease;
+        }
+        
+        .hero-img:hover img {
+            filter: grayscale(0%) contrast(100%);
+            transform: scale(1.05);
+        }
+        
         /* About Section */
         #about {
-            padding: 8rem 10%;
+            padding: 5rem 10%;
             background: rgba(5, 5, 16, 0.6);
             position: relative;
         }
         
         .section-title {
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
             position: relative;
             display: inline-block;
         }
@@ -165,59 +191,120 @@
         
         .about-content {
             display: flex;
-            gap: 4rem;
-            align-items: center;
+            gap: 3rem;
+            align-items: flex-start;
         }
         
         .about-text {
             flex: 1;
         }
         
-        .about-img {
+        .education-section {
             flex: 1;
-            position: relative;
+            background: rgba(20, 20, 40, 0.6);
+            border-radius: 15px;
+            padding: 1.5rem;
+            border: 1px solid rgba(0, 247, 255, 0.1);
+            transition: all 0.3s ease;
         }
         
-        .about-img::before {
+        .education-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 247, 255, 0.1);
+            border-color: rgba(0, 247, 255, 0.3);
+        }
+        
+        .education-tabs {
+            display: flex;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(0, 247, 255, 0.2);
+        }
+        
+        .education-tab {
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            position: relative;
+            font-weight: 500;
+            color: rgba(224, 224, 255, 0.7);
+            transition: all 0.3s ease;
+        }
+        
+        .education-tab.active {
+            color: var(--primary);
+        }
+        
+        .education-tab.active::after {
             content: '';
             position: absolute;
             width: 100%;
-            height: 100%;
-            border: 3px solid var(--primary);
-            top: 20px;
-            left: 20px;
-            z-index: -1;
-            border-radius: 10px;
+            height: 2px;
+            bottom: -1px;
+            left: 0;
+            background: var(--primary);
         }
         
-        .about-img img {
-            width: 100%;
-            border-radius: 10px;
-            filter: grayscale(20%) contrast(110%);
-            transition: all 0.5s ease;
+        .education-tab:hover {
+            color: var(--light);
         }
         
-        .about-img:hover img {
-            filter: grayscale(0%) contrast(100%);
+        .education-content {
+            display: none;
+        }
+        
+        .education-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .education-item {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px dashed rgba(0, 247, 255, 0.1);
+        }
+        
+        .education-item:last-child {
+            border-bottom: none;
+        }
+        
+        .education-item h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .education-item p {
+            margin: 0.3rem 0;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .education-item .date {
+            color: var(--primary);
+            font-size: 0.8rem;
         }
         
         /* Skills Section */
         #skills {
-            padding: 8rem 10%;
+            padding: 5rem 10%;
             position: relative;
         }
         
         .skills-container {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            gap: 1.5rem;
+            margin-top: 2rem;
         }
         
         .skill-category {
             background: rgba(20, 20, 40, 0.6);
             border-radius: 15px;
-            padding: 2rem;
+            padding: 1.5rem;
             transition: all 0.3s ease;
             border: 1px solid rgba(0, 247, 255, 0.1);
         }
@@ -229,15 +316,15 @@
         }
         
         .skill-category h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            margin-bottom: 1.2rem;
             color: var(--primary);
         }
         
         .skill-items {
             display: flex;
             flex-wrap: wrap;
-            gap: 1rem;
+            gap: 0.8rem;
         }
         
         .skill-item {
@@ -262,21 +349,21 @@
         
         /* Projects Section */
         #projects {
-            padding: 8rem 10%;
+            padding: 5rem 10%;
             background: rgba(5, 5, 16, 0.6);
             position: relative;
         }
         
         .projects-container {
-            margin-top: 3rem;
+            margin-top: 2rem;
             position: relative;
         }
         
         .projects-slider {
             display: flex;
             overflow-x: auto;
-            gap: 2rem;
-            padding: 2rem 0;
+            gap: 1.5rem;
+            padding: 1.5rem 0;
             scroll-snap-type: x mandatory;
             scroll-behavior: smooth;
             -webkit-overflow-scrolling: touch;
@@ -297,8 +384,8 @@
         }
         
         .project-card {
-            min-width: 300px;
-            max-width: 400px;
+            min-width: 280px;
+            max-width: 350px;
             background: rgba(20, 20, 40, 0.6);
             border-radius: 15px;
             overflow: hidden;
@@ -314,7 +401,7 @@
         }
         
         .project-img {
-            height: 200px;
+            height: 180px;
             overflow: hidden;
         }
         
@@ -330,24 +417,24 @@
         }
         
         .project-content {
-            padding: 1.5rem;
+            padding: 1.2rem;
         }
         
         .project-content h3 {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             margin-bottom: 0.5rem;
             color: var(--primary);
         }
         
         .project-content p {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
             opacity: 0.9;
             font-size: 0.9rem;
         }
         
         .project-links {
             display: flex;
-            gap: 1rem;
+            gap: 0.8rem;
         }
         
         .project-links a {
@@ -366,21 +453,21 @@
         
         /* Highlights Section */
         #highlights {
-            padding: 8rem 10%;
+            padding: 5rem 10%;
             position: relative;
         }
         
         .highlights-container {
-            margin-top: 3rem;
+            margin-top: 2rem;
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 1.5rem;
         }
         
         .highlight-card {
             background: rgba(20, 20, 40, 0.6);
             border-radius: 15px;
-            padding: 2rem;
+            padding: 1.5rem;
             text-align: center;
             transition: all 0.3s ease;
             border: 1px solid rgba(0, 247, 255, 0.1);
@@ -393,14 +480,14 @@
         }
         
         .highlight-icon {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
+            font-size: 2.5rem;
+            margin-bottom: 1.2rem;
             color: var(--primary);
         }
         
         .highlight-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
         }
         
         .highlight-card p {
@@ -409,96 +496,23 @@
         }
         
         /* Certificates Section */
-        /* #certificates {
-            padding: 8rem 10%;
-            background: rgba(5, 5, 16, 0.6);
-            position: relative;
-        }
-        
-        .certificates-container {
-            margin-top: 3rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .certificate-card {
-            background: rgba(20, 20, 40, 0.6);
-            border-radius: 15px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(0, 247, 255, 0.1);
-        }
-        
-        .certificate-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 247, 255, 0.1);
-            border-color: rgba(0, 247, 255, 0.3);
-        }
-        
-        .certificate-img {
-            height: 200px;
-            overflow: hidden;
-        }
-        
-        .certificate-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .certificate-card:hover .certificate-img img {
-            transform: scale(1.1);
-        }
-        
-        .certificate-content {
-            padding: 1.5rem;
-        }
-        
-        .certificate-content h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .certificate-content p {
-            opacity: 0.8;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-        
-        .certificate-link {
-            color: var(--primary);
-            text-decoration: none;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: all 0.3s ease;
-        }
-        
-        .certificate-link:hover {
-            text-decoration: underline;
-        } */
-
-         #certificates {
-            padding: 8rem 10%;
+        #certificates {
+            padding: 5rem 10%;
             background:rgba(5, 5, 16, 0.6);
-            /* background: rgba(10, 10, 10, 0.6); */
             position: relative;
             overflow: hidden;
         }
         
         .certificates-container {
-            margin-top: 3rem;
+            margin-top: 2rem;
             position: relative;
         }
         
         .certificates-slider {
             display: flex;
             overflow-x: auto;
-            gap: 2rem;
-            padding: 2rem 0;
+            gap: 1.5rem;
+            padding: 1.5rem 0;
             scroll-snap-type: x mandatory;
             scroll-behavior: smooth;
             -webkit-overflow-scrolling: touch;
@@ -524,17 +538,14 @@
         }
         
         .certificate-card {
-            min-width: 300px;
-            max-width: 400px;
-            /* background: rgba(30, 30, 30, 0.8); */
+            min-width: 280px;
+            max-width: 350px;
             background: rgba(20, 20, 40, 0.6);
             border-radius: 15px;
             overflow: hidden;
             scroll-snap-align: start;
             transition: all 0.3s ease;
-            /* border: 1px solid rgba(0, 230, 118, 0.1); */
             border: 1px solid rgba(0, 247, 255, 0.1);
-
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             flex-shrink: 0;
         }
@@ -546,7 +557,7 @@
         }
         
         .certificate-img {
-            height: 200px;
+            height: 180px;
             overflow: hidden;
             position: relative;
         }
@@ -563,7 +574,7 @@
         }
         
         .certificate-content {
-            padding: 1.5rem;
+            padding: 1.2rem;
         }
         
         .certificate-content h3 {
@@ -575,7 +586,7 @@
             opacity: 0.8;
             font-size: 0.9rem;
             margin-bottom: 1rem;
-            line-height: 1.6;
+            line-height: 1.5;
         }
         
         .certificate-link {
@@ -597,89 +608,20 @@
             background: rgba(0, 230, 118, 0.2);
             transform: translateY(-2px);
         }
-        /* Badges Section
+
+        /* Badges Section */
         #badges {
-            padding: 8rem 10%;
+            padding: 5rem 10%;
             position: relative;
         }
-        
+
         .badges-container {
-            margin-top: 3rem;
+            margin-top: 2rem;
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 2rem;
+            gap: 1.5rem;
         }
-        
-        .badge-item {
-            width: 120px;
-            height: 120px;
-            background: rgba(20, 20, 40, 0.6);
-            border-radius: 50%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            border: 2px solid rgba(0, 247, 255, 0.1);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .badge-item::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            border: 2px solid var(--primary);
-            opacity: 0;
-            transition: all 0.3s ease;
-        }
-        
-        .badge-item:hover {
-            transform: translateY(-10px) scale(1.1);
-            box-shadow: 0 10px 20px rgba(0, 247, 255, 0.2);
-            border-color: rgba(0, 247, 255, 0.3);
-        }
-        
-        .badge-item:hover::before {
-            opacity: 0.3;
-            animation: rotate 3s linear infinite;
-        }
-        
-        @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        .badge-icon {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            color: var(--primary);
-        }
-        
-        .badge-item p {
-            font-size: 0.8rem;
-            text-align: center;
-        }*/
-        /* Badges Section */
-        #badges {
-            padding: 8rem 10%;
-            position: relative;
-        }
-                /* Badge Item with Link */
-        .badge-item {
-            width: 120px;
-            height: 120px;
-            background: rgba(20, 20, 40, 0.6);
-            border-radius: 50%;
-            transition: all 0.3s ease;
-            border: 2px solid rgba(0, 247, 255, 0.1);
-            position: relative;
-            overflow: hidden;
-        }
-
         .badge-link {
             position: absolute;
             top: 0;
@@ -694,36 +636,9 @@
             z-index: 1; /* Ensures link is above other elements */
         }
 
-        .badge-icon {
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-             pointer-events: none; 
-        }
-
-
-        .badge-icon img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-             pointer-events: none; 
-        }
-
-/* Rest of your existing badge styles (hover effects, etc.) */
-
-        .badges-container {
-            margin-top: 3rem;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 2rem;
-        }
-
         .badge-item {
-            width: 120px;
-            height: 120px;
+            width: 110px;
+            height: 110px;
             background: rgba(20, 20, 40, 0.6);
             border-radius: 20%;
             display: flex;
@@ -775,8 +690,8 @@
         }
 
         .badge-icon {
-            width: 110px;
-            height: 110px;
+            width: 100px;
+            height: 100px;
             margin-bottom: 0rem;
             display: flex;
             align-items: center;
@@ -795,16 +710,17 @@
             margin: 0;
             color: white;
         }
+        
         /* Footer */
         footer {
-            padding: 5rem 10% 3rem;
+            padding: 4rem 10% 2rem;
             background: rgba(5, 5, 16, 0.8);
             text-align: center;
         }
         
         .footer-title {
-            font-size: 2rem;
-            margin-bottom: 2rem;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
             background: linear-gradient(to right, var(--primary), var(--secondary));
             -webkit-background-clip: text;
             background-clip: text;
@@ -813,27 +729,28 @@
         
         .footer-subtitle {
             max-width: 600px;
-            margin: 0 auto 3rem;
+            margin: 0 auto 2rem;
             opacity: 0.9;
+            font-size: 1rem;
         }
         
         .social-links {
             display: flex;
             justify-content: center;
-            gap: 2rem;
-            margin-bottom: 3rem;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
         }
         
         .social-link {
-            width: 50px;
-            height: 50px;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             background: rgba(20, 20, 40, 0.6);
             color: var(--light);
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             transition: all 0.3s ease;
             border: 1px solid rgba(0, 247, 255, 0.1);
         }
@@ -860,8 +777,8 @@
         }
         
         .bg-1 {
-            width: 300px;
-            height: 300px;
+            width: 250px;
+            height: 250px;
             background: var(--primary);
             top: 10%;
             left: 5%;
@@ -869,8 +786,8 @@
         }
         
         .bg-2 {
-            width: 400px;
-            height: 400px;
+            width: 350px;
+            height: 350px;
             background: var(--secondary);
             bottom: 10%;
             right: 5%;
@@ -885,28 +802,94 @@
         
         /* Responsive */
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
+            #home {
+                height: auto;
+                padding-top: 100px;
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero-content {
+                margin-bottom: 2rem;
             }
             
             .hero-title {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
             }
             
             .about-content {
                 flex-direction: column;
             }
             
-            .about-img {
-                margin-top: 3rem;
+            .education-section {
+                margin-top: 2rem;
+                width: 100%;
+            }
+            
+            .nav-links {
+                gap: 1.2rem;
+            }
+            
+            .nav-links a {
+                font-size: 1rem;
             }
             
             .skills-container, .highlights-container, .certificates-container {
                 grid-template-columns: 1fr;
             }
             
-            .project-card {
+            .project-card, .certificate-card {
                 min-width: 250px;
+            }
+            
+            .badge-item {
+                width: 90px;
+                height: 90px;
+            }
+            
+            .badge-icon {
+                width: 80px;
+                height: 80px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+            
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .nav-links {
+                gap: 0.8rem;
+            }
+            
+            .nav-links a {
+                font-size: 0.9rem;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
             }
         }
     </style>
@@ -915,13 +898,11 @@
     <!-- Navigation -->
     <div class="nav-container">
         <nav>
-            <div class="logo">Portfolio</div>
             <div class="nav-links">
                 <a href="#home">Home</a>
                 <a href="#about">About</a>
                 <a href="#skills">Skills</a>
                 <a href="#projects">Projects</a>
-                <a href="#highlights">Highlights</a>
                 <a href="#certificates">Certificates</a>
                 <a href="#badges">Badges</a>
             </div>
@@ -938,6 +919,9 @@
                 <a href="#contact" class="btn btn-outline">Contact Me</a>
             </div>
         </div>
+        <div class="hero-img">
+            <img src="/images/about/images.png" alt="Profile Image">
+        </div>
         <div class="bg-element bg-1"></div>
         <div class="bg-element bg-2"></div>
     </section>
@@ -951,8 +935,55 @@
                 <p>My work focuses on creating intelligent systems that perceive, learn, and adapt to their environments. I've successfully delivered numerous projects on Upwork, helping clients implement cutting-edge robotics solutions.</p>
                 <p>When I'm not coding, you can find me tinkering with hardware, reading research papers, or contributing to open-source robotics projects.</p>
             </div>
-            <div class="about-img">
-                <img src="https://via.placeholder.com/500x500" alt="Profile Image">
+            <div class="education-section">
+                <div class="education-tabs">
+                    <div class="education-tab active" data-tab="education">Education</div>
+                    <div class="education-tab" data-tab="experience">Experience</div>
+                    <div class="education-tab" data-tab="achievements">Achievements</div>
+                </div>
+                <div class="education-content active" id="education-content">
+                    <div class="education-item">
+                        <h3>Bachelor of Science in Mechatronics Engineering</h3>
+                        <p>University of Engineering and Technology, Lahore</p>
+                        <p class="date">2021 - 2025</p>
+                    </div>
+                    <div class="education-item">
+                        <h3>Advanced Robotics Certification</h3>
+                        <p>NVIDIA Deep Learning Institute</p>
+                        <p class="date">2023</p>
+                    </div>
+                    <div class="education-item">
+                        <h3>Machine Learning Specialization</h3>
+                        <p>Stanford University (Coursera)</p>
+                        <p class="date">2022</p>
+                    </div>
+                </div>
+                <div class="education-content" id="experience-content">
+                    <div class="education-item">
+                        <h3>Robotics Engineer - Freelance</h3>
+                        <p>Upwork & Fiverr</p>
+                        <p class="date">2022 - Present</p>
+                        <p>Developed custom robotics solutions for clients worldwide</p>
+                    </div>
+                    <div class="education-item">
+                        <h3>Research Intern</h3>
+                        <p>UET Robotics Lab</p>
+                        <p class="date">Summer 2023</p>
+                        <p>Worked on autonomous navigation systems</p>
+                    </div>
+                </div>
+                <div class="education-content" id="achievements-content">
+                    <div class="education-item">
+                        <h3>National STEM Champion</h3>
+                        <p>All Pakistan STEM Competition</p>
+                        <p class="date">2024</p>
+                    </div>
+                    <div class="education-item">
+                        <h3>Best Project Award</h3>
+                        <p>UET Lahore Engineering Expo</p>
+                        <p class="date">2023</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1047,70 +1078,7 @@
         </div>
     </section>
     
-    <!-- Highlights Section -->
-    <!-- <section id="highlights">
-        <h2 class="section-title">Career Highlights</h2>
-        <div class="highlights-container">
-            <div class="highlight-card">
-                <div class="highlight-icon"><i class="fas fa-medal"></i></div>
-                <h3>Top Rated</h3>
-                <p>Consistently ranked among top Robotics engineers on Upwork with 100% job success rate</p>
-            </div>
-            <div class="highlight-card">
-                <div class="highlight-icon"><i class="fas fa-project-diagram"></i></div>
-                <h3>50+ Projects</h3>
-                <p>Delivered complex robotics and AI solutions for clients worldwide</p>
-            </div>
-            <div class="highlight-card">
-                <div class="highlight-icon"><i class="fas fa-code-branch"></i></div>
-                <h3>Open Source</h3>
-                <p>Active contributor to ROS2 and robotics open-source communities</p>
-            </div>
-            <div class="highlight-card">
-                <div class="highlight-icon"><i class="fas fa-graduation-cap"></i></div>
-                <h3>Research</h3>
-                <p>Published papers on machine learning applications in robotics</p>
-            </div>
-        </div>
-    </section> -->
-    
     <!-- Certificates Section -->
-    <!-- <section id="certificates">
-        <h2 class="section-title">Certifications</h2>
-        <div class="certificates-container">
-            <div class="certificate-card">
-                <div class="certificate-img">
-                    <img src="https://via.placeholder.com/400x200" alt="Certificate Image">
-                </div>
-                <div class="certificate-content">
-                    <h3>NVIDIA Jetson AI Specialist</h3>
-                    <p>Certified in developing and deploying AI solutions on NVIDIA Jetson platforms</p>
-                    <a href="#" class="certificate-link">View Certificate <i class="fas fa-external-link-alt"></i></a>
-                </div>
-            </div>
-            <div class="certificate-card">
-                <div class="certificate-img">
-                    <img src="https://via.placeholder.com/400x200" alt="Certificate Image">
-                </div>
-                <div class="certificate-content">
-                    <h3>ROS2 Professional Certification</h3>
-                    <p>Expertise in Robot Operating System 2 for industrial applications</p>
-                    <a href="#" class="certificate-link">View Certificate <i class="fas fa-external-link-alt"></i></a>
-                </div>
-            </div>
-            <div class="certificate-card">
-                <div class="certificate-img">
-                    <img src="https://via.placeholder.com/400x200" alt="Certificate Image">
-                </div>
-                <div class="certificate-content">
-                    <h3>Deep Learning Specialization</h3>
-                    <p>Advanced neural networks and deep learning architectures certification</p>
-                    <a href="#" class="certificate-link">View Certificate <i class="fas fa-external-link-alt"></i></a>
-                </div>
-            </div>
-        </div>
-    </section> -->
-     <!-- Certificates Section - Now a slider -->
     <section id="certificates">
         <h2 class="section-title">Certifications</h2>
         <div class="certificates-container">
@@ -1192,46 +1160,11 @@
     </section>
     
     <!-- Badges Section -->
-    <!-- <section id="badges">
-        <h2 class="section-title">Achievement Badges</h2>
-        <div class="badges-container">
-            <div class="badge-item">
-                <div class="badge-icon"><i class="fab fa-nvidia"></i></div>
-                <p>Jetson Expert</p>
-            </div>
-            <div class="badge-item">
-                <div class="badge-icon"><i class="fas fa-robot"></i></div>
-                <p>ROS2 Master</p>
-            </div>
-            <div class="badge-item">
-                <div class="badge-icon"><i class="fas fa-brain"></i></div>
-                <p>ML Specialist</p>
-            </div>
-            <div class="badge-item">
-                <div class="badge-icon"><i class="fab fa-python"></i></div>
-                <p>Python Pro</p>
-            </div>
-            <div class="badge-item">
-                <div class="badge-icon"><i class="fas fa-rocket"></i></div>
-                <p>Upwork Top Rated</p>
-            </div>
-            <div class="badge-item">
-                <div class="badge-icon"><i class="fas fa-code"></i></div>
-                <p>Open Source</p>
-            </div>
-        </div>
-    </section> -->
-
     <section id="badges">
     <h2 class="section-title">Achievement Badges</h2>
     <div class="badges-container">
-        <!-- <div class="badge-item">
-            <a href="https://www.credly.com/badges/88aeebf3-c503-4cad-a452-eba331cd7263/public_url" target="_blank">
-                <div class="badge-icon"><img src="images/badges/data-analysis-using-python.png"></div>
-              
-            </a>
-        </div> -->
-        <div class="badge-item">
+
+           <div class="badge-item">
             <a href="https://www.credly.com/badges/88aeebf3-c503-4cad-a452-eba331cd7263/public_url" 
                 target="_blank" 
                 rel="noopener noreferrer"
@@ -1241,36 +1174,6 @@
                     </div>
             </a>
         </div>
-        <!-- <div class="badge-item">
-            <a href="https://example.com/ros2-master" target="_blank">
-                <div class="badge-icon"><img src="ros2-master.png" alt="ROS2 Master"></div>
-                <p>ROS2 Master</p>
-            </a>
-        </div>
-        <div class="badge-item">
-            <a href="https://example.com/ml-specialist" target="_blank">
-                <div class="badge-icon"><img src="ml-specialist.png" alt="ML Specialist"></div>
-                <p>ML Specialist</p>
-            </a>
-        </div>
-        <div class="badge-item">
-            <a href="https://example.com/python-pro" target="_blank">
-                <div class="badge-icon"><img src="python-pro.png" alt="Python Pro"></div>
-                <p>Python Pro</p>
-            </a>
-        </div>
-        <div class="badge-item">
-            <a href="https://example.com/upwork-top-rated" target="_blank">
-                <div class="badge-icon"><img src="upwork-top-rated.png" alt="Upwork Top Rated"></div>
-                <p>Upwork Top Rated</p>
-            </a>
-        </div>
-        <div class="badge-item">
-            <a href="https://example.com/open-source" target="_blank">
-                <div class="badge-icon"><img src="open-source.png" alt="Open Source"></div>
-                <p>Open Source</p>
-            </a>
-        </div> -->
     </div>
 </section>
     
@@ -1282,30 +1185,19 @@
             <a href="mailto:musmannoor2004@gmail.com" target="_blank" class="social-link"><i class="fas fa-envelope"></i></a>
             <a href="https://github.com/usmanNoor5" target="_blank" class="social-link"><i class="fab fa-github"></i></a>
             <a href="https://www.linkedin.com/in/muhammad-usman-noor-b2a497236?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-            <!-- <a href="https://www.upwork.com/freelancers/~01866e6f65dacb253b?mp_source=share" target="_blank" class="social-link"><i class="fa-brands fa-square-upwork"></i></a> -->
             <a href="https://www.upwork.com/freelancers/~01866e6f65dacb253b?mp_source=share" class="social-link" target="_blank">
     <svg viewBox="0 0 24 24" width="24" height="24" style="fill: currentColor; vertical-align: middle;">
         <path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112c-.002 1.406-1.141 2.546-2.547 2.548-1.406-.002-2.543-1.143-2.545-2.548V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.686 1.109 3 0 5.439-2.452 5.439-5.45 0-3-2.439-5.439-5.439-5.439z"/>
     </svg>
-    
 </a>
-            <!-- <i class="fa-brands fa-square-upwork"></i> -->
             <a href="#" class="social-link"><i class="fas fa-file-pdf"></i></a>
         </div>
         <p class="copyright">© 2022 Muhammad Usman Noor. All rights reserved.</p>
     </footer>
     
     <script>
-        // JavaScript for animations and GitHub integration would go here
-        // This would include:
-        // 1. Smooth scrolling for navigation
-        // 2. GSAP animations for section entrances
-        // 3. GitHub API integration to load projects dynamically
-        // 4. Interactive skill animations
-        // 5. Project slider functionality
-        
         document.addEventListener('DOMContentLoaded', function() {
-            // Simple smooth scrolling for demo purposes
+            // Smooth scrolling for anchor links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
                     e.preventDefault();
@@ -1315,10 +1207,20 @@
                 });
             });
             
-            // In a real implementation, you would add:
-            // - Intersection Observer for scroll animations
-            // - GitHub API fetch to populate projects
-            // - More sophisticated animations
+            // Education tabs functionality
+            const tabs = document.querySelectorAll('.education-tab');
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Remove active class from all tabs and content
+                    tabs.forEach(t => t.classList.remove('active'));
+                    document.querySelectorAll('.education-content').forEach(c => c.classList.remove('active'));
+                    
+                    // Add active class to clicked tab and corresponding content
+                    tab.classList.add('active');
+                    const tabId = tab.getAttribute('data-tab');
+                    document.getElementById(`${tabId}-content`).classList.add('active');
+                });
+            });
         });
     </script>
 </body>
