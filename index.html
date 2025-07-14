@@ -203,6 +203,8 @@
         
         .education-section {
             flex: 1;
+            margin-left: auto;
+            margin-right: auto;
             background: rgba(20, 20, 40, 0.6);
             border-radius: 15px;
             padding: 1.5rem;
@@ -829,12 +831,20 @@
             
             .about-content {
                 flex-direction: column;
+                align-items: center; /* Add this to center all child elements */
             }
-            
-            .education-section {
-                margin-top: 2rem;
-                width: 90%;
+             .about-text {
+                width: 100%; /* Make text take full width */
+                max-width: 600px; /* Limit width for better readability */
+                margin-bottom: 2rem; /* Add space between text and education section */
             }
+                    
+.education-section {
+        width: 80%; /* Full width on mobile */
+        max-width: 500px; /* Limit maximum width */
+        margin: 0 auto; /* Center horizontally */
+        padding: 1rem; /* Consistent padding */
+    }
             
             .nav-links {
                 gap: 1.2rem;
@@ -881,6 +891,20 @@
                 width: 100%;
                 text-align: center;
             }
+             .education-section {
+        width: 90%; /* Even narrower on very small screens */
+        padding: 1rem; /* Slightly reduced padding */
+        
+    }
+    
+
+    .education-tab {
+        flex: none; /* Don't grow tabs */
+        width: 30%; /* Equal width for all tabs */
+        text-align: center;
+        padding: 0.5rem 0.2rem;
+        font-size: 0.85rem; /* Slightly smaller font */
+    }
             
             .nav-links {
                 gap: 0.8rem;
@@ -892,6 +916,90 @@
             
             .section-title {
                 font-size: 1.6rem;
+            }
+        }
+
+        @media (max-width: 412px) {
+        .hero-btns {
+            flex-direction: column;
+            align-items: center;
+            padding: 0 5%;
+        }
+        
+        .btn {
+            width: 100%;
+            max-width: 280px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+        }
+
+        @media (max-width: 375px) {
+            .hero-content {
+                padding: 0 5%;
+            }
+            
+            .hero-btns {
+                width: 100%;
+            }
+              .education-section {
+        width: 100%; /* Full width on smallest screens */
+        border-radius: 10px; /* Slightly smaller radius */
+    }
+    
+    .education-tab {
+        font-size: 0.8rem; /* Smaller font for tabs */
+    }
+        }
+        @media (max-width: 412px) {
+            .education-tabs {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .education-tab {
+                flex: 1;
+                min-width: 100px;
+                text-align: center;
+                padding: 0.5rem 0.3rem;
+                font-size: 0.9rem;
+            }
+            
+            .education-section {
+                width: 100%;
+                padding: 1rem;
+            }
+        }
+
+        @media (max-width: 375px) {
+            .education-tab {
+                font-size: 0.85rem;
+                padding: 0.5rem 0.2rem;
+            }
+            
+            .education-item h3 {
+                font-size: 1rem;
+            }
+            
+            .education-item p {
+                font-size: 0.85rem;
+            }
+        }
+        @media (max-width: 320px) {
+            .hero-title {
+                font-size: 1.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 0.9rem;
+            }
+            
+            .education-tab {
+                font-size: 0.8rem;
+            }
+            
+            .section-title {
+                font-size: 1.4rem;
             }
         }
     </style>
