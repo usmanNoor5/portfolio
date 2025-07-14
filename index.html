@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Robotics Engineer | AI/ML Specialist | ROS2 & Jetson Expert</title>
@@ -197,11 +199,14 @@
             align-items: flex-start;
         }
         
-        .about-text {
-            flex: 1;
-        }
+ .about-text {
+    flex: 1;
+    font-size: 1.2rem;
+    font-family: 'Inter', sans-serif;
+    position: relative;
+}
         
-        .education-section {
+        .education-section {    
             flex: 1;
             margin-left: auto;
             margin-right: auto;
@@ -405,19 +410,33 @@
         }
         
         .project-img {
-            height: 180px;
+            /* height: 200px;
+            overflow: hidden; */
+            height: 160px;
             overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.1); /* Optional: adds background if image doesn't cover */
         }
         
         .project-img img {
-            width: 100%;
+            /* width: 100%;
             height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease; */
+             width: 100%;
+            height: auto;
             object-fit: cover;
             transition: transform 0.5s ease;
         }
+        .project-img img.portrait {
+    width: auto;
+    height: 100%;
+}
         
         .project-card:hover .project-img img {
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
         
         .project-content {
@@ -900,7 +919,7 @@
 
     .education-tab {
         flex: none; /* Don't grow tabs */
-        width: 30%; /* Equal width for all tabs */
+        width: 30%; /* Equal width for all tabss */
         text-align: center;
         padding: 0.5rem 0.2rem;
         font-size: 0.85rem; /* Slightly smaller font */
@@ -1042,9 +1061,10 @@
         <h2 class="section-title">About Me</h2>
         <div class="about-content">
             <div class="about-text">
-                <p>I'm a passionate Robotics Engineer with expertise in Machine Learning, Deep Learning, and ROS2 development. With extensive experience working with NVIDIA Jetson platforms, I bridge the gap between AI algorithms and real-world robotic applications.</p>
-                <p>My work focuses on creating intelligent systems that perceive, learn, and adapt to their environments. I've successfully delivered numerous projects on Upwork, helping clients implement cutting-edge robotics solutions.</p>
-                <p>When I'm not coding, you can find me tinkering with hardware, reading research papers, or contributing to open-source robotics projects.</p>
+            <p>I'm a Machine Learning Engineer focused on building intelligent systems that learn from data and deliver real-world impact. From predictive modeling and optimization to neural network training and deployment, I work with tools like TensorFlow, Scikit-learn, and Keras to solve practical problems.</p>
+            <p>I also specialize in Computer Vision, developing smart applications such as object detection, gesture recognition, and person-following robots using YOLOv8, OpenCV, and depth cameras. My projects combine machine learning with visual perception to create adaptive, efficient solutions.</p>
+            <p>Outside of coding, I'm always exploring new ML techniques, experimenting with ideas, and turning concepts into automation-driven results.</p>
+
             </div>
             <div class="education-section">
                 <div class="education-tabs">
@@ -1147,44 +1167,131 @@
                 <!-- Project cards will be dynamically loaded from GitHub API -->
                 <div class="project-card">
                     <div class="project-img">
-                        <img src="https://via.placeholder.com/400x200" alt="Project Image">
+                        <img src="images/projects/titanic.png" alt="Project Image">
                     </div>
                     <div class="project-content">
-                        <h3>Autonomous Drone Navigation</h3>
-                        <p>ROS2-based autonomous drone using NVIDIA Jetson for real-time object detection and path planning in dynamic environments.</p>
+                        <h3>Titanic- Machine Learning from Disaster</h3>
+                        <p>Completed project on Kaggle with 80%+ accuracy using TensorFlow & Scikit-learn!, Next: Deep Learning, NLP, Generative AI.</p>
                         <div class="project-links">
                             <a href="#"><i class="fab fa-github"></i> View Code</a>
-                            <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i> Live Demo</a>
                         </div>
                     </div>
                 </div>
-                <div class="project-card">
-                    <div class="project-img">
-                        <img src="https://via.placeholder.com/400x200" alt="Project Image">
+
+                <div class="project-card" >
+                    <div class="project-img" >
+                        <img src="images/projects/web_interface_for AGV.png" alt="Project Image" >
                     </div>
                     <div class="project-content">
-                        <h3>Industrial Robot Arm ML Control</h3>
-                        <p>Machine learning model trained to control a 6-DOF robotic arm for precise manufacturing tasks using reinforcement learning.</p>
+                        <h3>Web Interface for Autonomous Guided Vehicle</h3>
+                        <p>Developed a real-time web dashboard with live camera feed, 3D AGV mesh visualization, and control system integration for monitoring and navigation</p>
                         <div class="project-links">
                             <a href="#"><i class="fab fa-github"></i> View Code</a>
-                            <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i> Live Demo</a>
                         </div>
                     </div>
                 </div>
-                <div class="project-card">
-                    <div class="project-img">
-                        <img src="https://via.placeholder.com/400x200" alt="Project Image">
+
+                <div class="project-card" >
+                    <div class="project-img" >
+                        <img src="images/projects/Ai_Virtual_mouse.png" alt="Project Image" >
                     </div>
                     <div class="project-content">
-                        <h3>Jetson-Powered Smart Surveillance</h3>
-                        <p>Real-time multi-object tracking system with facial recognition running on NVIDIA Jetson Xavier NX.</p>
+                        <h3>AI Virtual Mouse</h3>
+                        <p>Built a real-time hand gesture controlled virtual mouse using OpenCV and MediaPipe for cursor movement, clicks, and scroll actions</p>
                         <div class="project-links">
                             <a href="#"><i class="fab fa-github"></i> View Code</a>
-                            <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i> Live Demo</a>
                         </div>
                     </div>
                 </div>
-                <!-- More projects will be added dynamically -->
+                <div class="project-card" >
+                    <div class="project-img" >
+                        <img src="images/projects/robotic_Arm.png" alt="Project Image" >
+                    </div>
+                    <div class="project-content">
+                        <h3>3DOF Robotic Arm with IMU-Based Human Motion Mimicry </h3>
+                        <p>Designed a servo-modified robotic arm with an advanced gripper, using IMU data and filtering to replicate real-time human arm movement with high precision</p>
+                        <div class="project-links">
+                            <a href="#"><i class="fab fa-github"></i> View Code</a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i> Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" >
+                    <div class="project-img" >
+                        <img src="images/projects/personfollowing robot.png" alt="Project Image" >
+                    </div>
+                    <div class="project-content">
+                        <h3>Person-Following Autonomous Robot</h3>
+                        <p>Developed a real-time person-tracking robot using ROS2, YOLOv8, and Intel RealSense D435i on NVIDIA Jetson Orin Nano</p>
+                        <div class="project-links">
+                            <a href="#"><i class="fab fa-github"></i> View Code</a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i> Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" >
+                    <div class="project-img" >
+                        <img src="images/projects/car_prize.png" alt="Project Image" >
+                    </div>
+                    <div class="project-content">
+                        <h3>Car Prize Prediction ML model</h3>
+                        <p>Trained a machine learning model using Kaggle dataset to predict vehicle prices with regression techniques (pandas, scikit-learn, matplotlib)</p>
+                        <div class="project-links">
+                            <a href="#"><i class="fab fa-github"></i> View Code</a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i> Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" >
+                    <div class="project-img" >
+                        <img src="images/projects/genetic algorithm.png" alt="Project Image" >
+                    </div>
+                    <div class="project-content">
+                        <h3>Genetic Algorithm in C++</h3>
+                        <p>Implemented evolutionary optimization from scratch, including selection, crossover, mutation, and fitness evaluation for custom problem-solving</p>
+                        <div class="project-links">
+                            <a href="#"><i class="fab fa-github"></i> View Code</a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i> Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+               
+
+                 <div class="project-card" >
+                    <div class="project-img" >
+                        <img src="images/projects/connect4.png" alt="Project Image" >
+                    </div>
+                    <div class="project-content">
+                        <h3>Connect 4 Game in C++</h3>
+                        <p>Developed a terminal-based two-player Connect 4 game with win-check logic, grid rendering, and turn-based input handling</p>
+                        <div class="project-links">
+                            <a href="#"><i class="fab fa-github"></i> View Code</a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i> Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" >
+                    <div class="project-img" >
+                        <img src="images/projects/N-queens.png" alt="Project Image" >
+                    </div>
+                    <div class="project-content">
+                        <h3>N-Queens Problem Solver</h3>
+                        <p>Implemented backtracking algorithm to solve the N-Queens problem efficiently with visualization of safe queen placements (C++/Python)</p>
+                        <div class="project-links">
+                            <a href="#"><i class="fab fa-github"></i> View Code</a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i> Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!--
+                 More projects will be added dynamically -->
             </div>
         </div>
     </section>
